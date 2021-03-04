@@ -2,7 +2,8 @@ package br.com.treinamento.radix.agenda;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,15 +17,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         List<String> alunos = new ArrayList<>(
-                Arrays.asList("Ezequiel", "Julio", "Arthur")
+                Arrays.asList("Ezequiel", "Julio", "Arthur", "Ana", "Marlene")
         );
 
-        TextView primeiroAluno = findViewById(R.id.textView);
-        TextView segundoAluno = findViewById(R.id.textView2);
-        TextView terceiroAluno = findViewById(R.id.textView3);
-
-        primeiroAluno.setText(alunos.get(0));
-        segundoAluno.setText(alunos.get(1));
-        terceiroAluno.setText(alunos.get(2));
+        ListView listaDeAlunos = findViewById(R.id.activity_main_lista_de_alunos);
+        listaDeAlunos.setAdapter(new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                alunos
+        ));
     }
 }

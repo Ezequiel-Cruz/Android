@@ -5,27 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
+    <ListView
+        android:id="@+id/activity_main_lista_de_alunos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ezequiel T. Cruz"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="54dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="54dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="308dp"
-        tools:layout_editor_absoluteY="54dp" />
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="5dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
