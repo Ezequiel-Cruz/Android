@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Lista de Alunos");
 
         List<String> alunos = new ArrayList<>(
                 Arrays.asList("Ezequiel", "Julio", "Arthur", "Ana", "Marlene")
