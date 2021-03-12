@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import br.com.treinamento.radix.agenda.R;
+import br.com.treinamento.radix.agenda.dao.AlunoDAO;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
@@ -17,17 +18,15 @@ public class ListaAlunosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos);
+
+        AlunoDAO dao = new AlunoDAO();
+
         setTitle("Lista de Alunos");
 
-        List<String> alunos = new ArrayList<>(
-                Arrays.asList("Ezequiel", "Julio", "Arthur", "Ana", "Marlene")
-        );
-
         ListView listaDeAlunos = findViewById(R.id.activity_lista_alunos_listview);
-        listaDeAlunos.setAdapter(new ArrayAdapter<String>(
+        listaDeAlunos.setAdapter(new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
-                alunos
-        ));
+                dao.todos()));
     }
 }
