@@ -1,47 +1,52 @@
 package br.com.treinamento.radix.agenda.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import br.com.treinamento.radix.agenda.R;
 import br.com.treinamento.radix.agenda.dao.AlunoDAO;
 
 public class ListaAlunosActivity extends AppCompatActivity {
+    public static final String TITULO_APPBAR = "Lista de Alunos";
+    private final AlunoDAO dao = new AlunoDAO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos);
 
-        setTitle("Lista de Alunos");
+        setTitle(TITULO_APPBAR);
+        configuraFabNovoAluno();
+    }
 
+    private void configuraFabNovoAluno() {
         FloatingActionButton botaoNovaAluno = findViewById(R.id.activity_lista_aluno_novo);
         botaoNovaAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ListaAlunosActivity.this,
-                        FormularioAlunoActivity.class));
+                abreFormularioAlunoActivity();
             }
         });
+    }
+
+    private void abreFormularioAlunoActivity() {
+        startActivity(new Intent(this, FormularioAlunoActivity.class));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        configuraLista();
+    }
 
-        AlunoDAO dao = new AlunoDAO();
-
+    private void configuraLista() {
         ListView listaDeAlunos = findViewById(R.id.activity_lista_alunos_listview);
         listaDeAlunos.setAdapter(new ArrayAdapter<>(
                 this,
